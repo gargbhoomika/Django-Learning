@@ -20,4 +20,10 @@ def contact_page(request):
     "title" : "Contact Page Working" ,
     "words" : "This is a Contact Page."
     }
-    return render(request, "home_page.html" , content)
+    if request.method == "POST":
+        # print(request.POST)
+        print(request.POST.get('full_name'))
+        print(request.POST.get('emailid'))
+        print(request.POST.get('content'))
+
+    return render(request, "contact/view.html" , content)
